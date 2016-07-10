@@ -1,0 +1,17 @@
+simple_heap_init:
+	RET 0	; Retorna inmediatamente
+
+simple_malloc:
+	LOADFP	; Inicialización unidad	
+	LOADSP
+	STOREFP ; Finaliza inicialización del RA
+	LOADHL	; hl
+	DUP	; hl
+	PUSH 1	; 1
+	ADD	; hl+1
+	STORE 4 ; Guarda el resultado (un puntero a la primer celda de la región de memoria)
+ 	LOAD 3	; Carga la cantidad de celdas a alojar (parámetro que debe ser positivo)
+	ADD
+	STOREHL ; Mueve el heap limit (hl). Expande el heap
+	STOREFP
+	RET 1	; Retorna eliminando el parámetro

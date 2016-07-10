@@ -1,0 +1,12 @@
+package AST;
+
+import TablaSimbolos.Clase;
+import TablaSimbolos.Metodo;
+import TablaSimbolos.Tipos.Tipo;
+import exceptions.SemanticException;
+
+public abstract class NodoExpPrimario extends NodoExpresion{
+	public abstract Tipo check(Metodo metodoactual) throws SemanticException;
+
+}
+
